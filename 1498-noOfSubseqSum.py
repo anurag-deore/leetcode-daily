@@ -3,16 +3,19 @@ Problem Name: 1498. Number of subsequences that satisfy the given sum condition
 Attempted : # 29-06-2025
 '''
 
-def all_subs(inputArray,outputArray,index):
-    print("\n\n Op ARR => ",outputArray,"\nCurr Index =>",index)
-    if(len(inputArray)==index):
-        print(outputArray)
-        return
-    outputArray.append(inputArray[index])
-    all_subs(inputArray,outputArray,index+1)
-    outputArray.pop()
-    all_subs(inputArray, outputArray, index + 1)
+def numSubseq(nums: list[int], target: int) -> int:
+  nums.sort()
+  res = 0
+  mod = (10**9 + 7)
+
+  r = len(nums) - 1
+  for i, left in enumerate(nums):
+    while (left + nums [r]) > target and i <= r:
+      r -= 1
+    if i <= r:
+      res += (2**(r - i)) % mod
+  return res
 
 
 
-all_subs([1,3,6,8],[],0)
+print(numSubseq([3,5,6,7],9))
