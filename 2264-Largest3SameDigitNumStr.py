@@ -20,6 +20,16 @@ class Solution:
         return s if len(s) > 1 else ""
 
 
+# CONSIDERING PYTHON CAN COMPARE STRING also
+'''
+        res=""
+        for i in range(len(num)-2):
+            if num[i]==num[i+1] ==num[i+2]:
+                if num[i:i+3]>res:
+                    res=num[i:i+3]
+        return res
+'''
+
 s = Solution()
 print(s.largestGoodInteger("6777133339"))
 print(s.largestGoodInteger("2300019"))
